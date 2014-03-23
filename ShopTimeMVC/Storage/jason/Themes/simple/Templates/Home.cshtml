@@ -1,0 +1,56 @@
+﻿@model JasonSoft.ShopTimeMVC.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    var pageName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue;
+}
+
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Hello, world!</h1>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3">
+        <img src="/contents/images/subpic001.jpg" />
+    </div>
+    <div class="col-lg-3">
+        <img src="/contents/images/subpic001.jpg" />
+    </div>
+    <div class="col-lg-3">
+        <img src="/contents/images/subpic001.jpg" />
+    </div>
+    <div class="col-lg-3">
+        <img src="/contents/images/subpic001.jpg" />
+    </div>
+
+</div>
+
+
+
+@*@foreach(var product in Model.Products) {
+<table>
+    <tr>
+        <td>Name:</td>
+        <td>@Html.ActionLink(@product.DisplayName, @product.DisplayName, "product")</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>@product.Description</td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td>@product.Price</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Buy Now", "add", "cart")</td>
+    </tr>
+</table>
+    <p></p>
+}*@
+

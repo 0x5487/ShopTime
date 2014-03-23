@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/contents/css/default.css" />
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="/contents/images/dr_logo.png" class="img-thumbnail" style="width: 50px; height: 50px; margin-bottom:10px" />
+            </div>
+            <div class="col-lg-9">
+                <p class="text-right">Search: <input type="text"/> </p>
+                <p class="text-right">@Html.PageLink("Login", "Login") | @Html.PageLink("Cart (0)", "Cart")</p>
+            </div>
+        </div>
+        @Html.Partial("NavBar")
+
+
+        <div class="conetnt">
+            @RenderBody()
+        </div>
+
+        <hr />
+        <footer class="row container">
+            <span>Privacy and Cookies</span><span>Terms Of Use And Sale</span>
+            <p></p>
+        </footer>
+    </div>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	@RenderSection("inlineScript", false)
+</body>
+</html>

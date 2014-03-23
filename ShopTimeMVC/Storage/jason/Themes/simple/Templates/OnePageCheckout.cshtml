@@ -1,0 +1,120 @@
+﻿@model JasonSoft.ShopTimeMVC.Models.OnePageCheckoutViewModel
+@using JasonSoft.ShopTimeMVC.Models
+@using JasonSoft
+
+@{
+    ViewBag.Title = "OnePageCheckout";
+}
+
+<h2>OnePageCheckout</h2>
+
+
+@if (Session["login"] != null && Session["login"].ToString() == "true")
+{
+    
+}
+
+
+@using (Html.BeginForm("login", "checkout"))
+{
+    
+    if (Session["login"] == null)
+     {
+         <fieldset>
+             <legend>Login</legend>
+             <div>
+                 <span>Username:</span>
+                 @Html.TextBox("username")
+                 @Html.ValidationMessage("UserName")
+             </div>
+             <div>
+                 <span>Password:</span>
+                 @Html.Password("password")
+                 @Html.ValidationMessage("Password", "error password")
+             </div>
+         </fieldset>
+         <input type="submit" name="action" value="login" />
+     }
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>Billing</legend>
+        <div>
+            <span>FirstName:</span>
+            @Html.TextBoxFor(m => m.BillingFirstName)
+            @Html.ValidationMessageFor(m => m.BillingFirstName)
+        </div>
+        <div>
+            <span>Lastname:</span>
+            @Html.TextBoxFor(m => m.BillingLastName)
+            @Html.ValidationMessageFor(m => m.BillingLastName, "*")
+        </div>
+        <div>
+            <span>address1:</span>
+            @Html.TextBoxFor(m => m.BillingAddress1)
+            @Html.ValidationMessageFor(m => m.BillingAddress1, "*")
+        </div>
+        <div>
+            <span>address2:</span>
+            @Html.TextBoxFor(m => m.BillingAddress2)
+        </div>
+    </fieldset>
+    
+    
+    <fieldset>
+        <legend>Shipping</legend>
+        <div>
+            @Html.CheckBoxFor( m => m.IsSameAsBilling) 
+            <span>shipping address is the same as billing address</span>
+        </div>
+        <div>
+            <span>FirstName:</span>
+            @Html.TextBoxFor(m => m.ShippingFirstName)
+            @Html.ValidationMessageFor(m => m.ShippingFirstName)
+        </div>
+        <div>
+            <span>Lastname:</span>
+            @Html.TextBoxFor(m => m.ShippingLastName)
+            @Html.ValidationMessageFor(m => m.ShippingLastName, "*")
+        </div>
+        <div>
+            <span>address1:</span>
+            @Html.TextBoxFor(m => m.ShippingAddress1)
+            @Html.ValidationMessageFor(m => m.ShippingAddress1, "*")
+        </div>
+        <div>
+            <span>address2:</span>
+            @Html.TextBoxFor(m => m.ShippingAddress2)
+        </div>
+    </fieldset>
+    
+    
+    <fieldset>
+        <legend>Payment</legend>
+        @Html.ValidationMessageFor(m => m.SelectedPaymentNameId)
+
+        @foreach (var paymentMethod in @Model.PaymentMethods)
+        {
+            <div id="@(paymentMethod.Name)PaymentMethod">
+                @Html.RadioButtonFor( m=> m.SelectedPaymentNameId, paymentMethod.Name)
+                @Html.Label(paymentMethod.Name)
+                <div id="ExpandPaymentDetails@(paymentMethod.Name)">
+                    @if (paymentMethod.Name == "CreditCard")
+                    {
+                        <span>CreditCardNumber*:</span>
+                        <span>@Html.TextBoxFor(m=>m.CreditCardNumber  ) 
+                              @Html.ValidationMessageFor(m=>m.CreditCardNumber  ) 
+                        </span>
+                    }
+
+                </div>
+            </div>
+        }
+    </fieldset>
+
+    <input type="submit" name="action" value="continue" />
+}

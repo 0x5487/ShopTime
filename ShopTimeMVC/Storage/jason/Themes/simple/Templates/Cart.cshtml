@@ -1,0 +1,54 @@
+﻿@model JasonSoft.ShopTimeMVC.Models.CartViewModel
+
+
+@{
+    ViewBag.Title = "Shopping Cart Page";
+}
+
+
+
+@Html.Partial("Breadcrumbs")
+
+
+
+@if (@Model.LineItems.Count <= 0) { 
+
+<div class="row">
+    Your shopping cart is empty.  Please @Html.PageLink("continue shopping", "Home")
+
+</div>
+
+
+
+
+}else{
+
+    <table>
+    <tr>
+        <td>Item</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Delete</td>
+        <td>Total</td>
+    </tr>
+    
+    @foreach (var lineItem in @Model.LineItems)
+    { 
+        <tr>
+            <td>@lineItem.DisplayName</td>
+            <td>@lineItem.UnitPrice</td>
+            <td>@Html.TextBox("qty[]", @lineItem.Quantity)</td>
+            <td>@Html.ActionLink("Delete", string.Format("delete/{0}", @lineItem.LineItemId))</td>
+            <td>@lineItem.TotalPrice</td>
+        </tr>
+    }
+
+
+</table>
+
+<input type="button" value="Update" />
+
+
+@Html.PageLink("Checkout", "onePagecheckout")
+}
+

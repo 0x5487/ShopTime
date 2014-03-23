@@ -1,0 +1,44 @@
+﻿@model JasonSoft.ShopTimeMVC.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "404";
+}
+
+
+
+@section inlineScript{
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var collection = {};
+        collection.DisplayName = "JasonLee";
+        collection.description = "test";
+
+        $.ajax({
+            type: "post",
+            url: "/api/collections/",
+            dataType: "json",
+            data: collection,           
+        })
+        .done(function (data, textStatus, jqXHR) {
+            alert(data.DisplayName);
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            var errObj = $.parseJSON(jqXHR.responseText);
+            console.log(errObj.Message);
+            console.log(errObj.ModelState);
+        })
+
+
+    });
+
+</script>
+    
+
+}
+
+
+
+
+

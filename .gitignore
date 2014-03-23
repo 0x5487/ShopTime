@@ -1,0 +1,9 @@
+/BuildedDLL
+bin
+obj
+packages
+*.suo
+*.user
+
+
+

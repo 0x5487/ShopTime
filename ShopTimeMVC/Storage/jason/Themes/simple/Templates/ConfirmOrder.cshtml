@@ -1,0 +1,64 @@
+﻿@model JasonSoft.ShopTimeMVC.Models.ConfirmOrderViewModel
+
+
+@{
+    ViewBag.Title = "ConfirmOrder";
+}
+
+<h2>Confirm Order Page</h2>
+
+
+@using (Html.BeginForm("placeorder", "checkout"))
+{
+
+    if (Model.IsShippingRequired)
+    {
+    <fieldset>
+        <legend>Shipping Options</legend>
+        <div>
+            <span>Please select one:</span>
+            <span>
+                @Html.DropDownListFor(m => m.SelectedShippingOptionId, new SelectList(@Model.ShippingOptions, "ShippingOptionId", "DisplayName"))
+                @Html.ValidationMessage("SelectedShippingOptionId")
+                  
+
+            </span>
+        </div>
+    </fieldset>
+    }
+
+    <div>@Html.PageLink("Edit", "cart")</div>
+    <fieldset>
+        <legend>Order Items</legend>
+        <table style="width: 100%">
+            <tr>
+                <td>ProductName</td>
+                <td>Quantity</td>
+                <td>Price</td>
+            </tr>
+            @foreach (var lineItem in @Model.LineItems)
+            { 
+                <tr>
+                    <td>@lineItem.DisplayName</td>
+                    <td>@lineItem.Quantity</td>
+                    <td>@lineItem.TotalPrice</td>
+                </tr>
+            }
+            <tr>
+                <td>&nbsp;</td>
+                <td>Total:</td>
+                <td>@Model.TotalPrice</td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    <fieldset>
+        <legend>BillingAddress</legend>
+        <div>
+            <span></span>
+        </div>
+    </fieldset>    
+
+
+    <input type="submit" name="action" value="Place Order" />    
+}

@@ -1,0 +1,23 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+
+    @if (Model != null && Model.TemplateName != null) {
+
+        String name = Model.TemplateName.ToString();
+        
+        switch (name)
+        { 
+
+            case "Collection":
+                @:<li class="active">@Model.Collection.DisplayName</li>
+                break;
+            default:
+                 @:<li class="active">@name</li>       
+                break;
+        
+        
+        }
+    
+    }
+
+</ol>

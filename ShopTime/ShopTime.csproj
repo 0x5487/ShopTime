@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F3D0FA4-EE80-4B7C-9501-9A440698A03A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JasonSoft.ShopTime</RootNamespace>
+    <AssemblyName>JasonSoft.ShopTime</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JasonSoft.Core">
+      <HintPath>..\..\..\BuildedDLL\Net40\JasonSoft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.FileSystems">
+      <HintPath>..\packages\Microsoft.Owin.FileSystems.2.1.0\lib\net40\Microsoft.Owin.FileSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\EfRepository.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IDBConetxt.cs" />
+    <Compile Include="Data\ShopTimeDbContext.cs" />
+    <Compile Include="Domain\Catalog\ImageType.cs" />
+    <Compile Include="Domain\Catalog\Option.cs" />
+    <Compile Include="Domain\Catalog\OptionValue.cs" />
+    <Compile Include="Domain\Catalog\ProductOption.cs" />
+    <Compile Include="Domain\Catalog\VariantOption.cs" />
+    <Compile Include="Domain\Catalog\ProductVariationServiceResult.cs" />
+    <Compile Include="Domain\Core\AuditInfo.cs" />
+    <Compile Include="Domain\Catalog\Catalog.cs" />
+    <Compile Include="Domain\Catalog\CatalogNode.cs" />
+    <Compile Include="Domain\Catalog\Collection.cs" />
+    <Compile Include="Domain\Catalog\LineItem.cs" />
+    <Compile Include="Domain\Catalog\LowStockAction.cs" />
+    <Compile Include="Domain\Catalog\ManageInventoryMethod.cs" />
+    <Compile Include="Domain\Catalog\ProductPrice.cs" />
+    <Compile Include="Domain\Catalog\PriceList.cs" />
+    <Compile Include="Domain\Catalog\PriceListStatus.cs" />
+    <Compile Include="Domain\Catalog\PriceType.cs" />
+    <Compile Include="Domain\Catalog\Image.cs" />
+    <Compile Include="Domain\Catalog\ProductServiceResult.cs" />
+    <Compile Include="Domain\Catalog\Variant.cs" />
+    <Compile Include="Domain\Catalog\ProductVersionStatus.cs" />
+    <Compile Include="Domain\Catalog\ProductStatus.cs" />
+    <Compile Include="Domain\Catalog\ProductType.cs" />
+    <Compile Include="Domain\Catalog\WeightUnit.cs" />
+    <Compile Include="Domain\Core\City.cs" />
+    <Compile Include="Domain\Core\Country.cs" />
+    <Compile Include="Domain\Core\CheckoutType.cs" />
+    <Compile Include="Domain\Catalog\CatalogSortBy.cs" />
+    <Compile Include="Domain\Core\Currency.cs" />
+    <Compile Include="Domain\Core\Invoice.cs" />
+    <Compile Include="Domain\Core\IResult.cs" />
+    <Compile Include="Domain\Core\IShopTimeToken.cs" />
+    <Compile Include="Domain\Core\CustomField.cs" />
+    <Compile Include="Domain\Core\Error.cs" />
+    <Compile Include="Domain\Core\Pager.cs" />
+    <Compile Include="Domain\Core\ShopTimeResult.cs" />
+    <Compile Include="Domain\Core\ShopTimeSetting.cs" />
+    <Compile Include="Domain\Core\ShopTimeToken.cs" />
+    <Compile Include="Domain\Core\StateProvince.cs" />
+    <Compile Include="Domain\Core\StoreStatus.cs" />
+    <Compile Include="Domain\FileSystem\VirutalDirectory.cs" />
+    <Compile Include="Domain\FileSystem\VirutalFile.cs" />
+    <Compile Include="Domain\Payment\CardType.cs" />
+    <Compile Include="Domain\Payment\SettlementType.cs" />
+    <Compile Include="Domain\Payment\PaymentResult.cs" />
+    <Compile Include="Domain\Payment\PostProcessPaymentRequest.cs" />
+    <Compile Include="Domain\Payment\RefundPaymentRequest.cs" />
+    <Compile Include="Domain\Payment\RefundPaymentResult.cs" />
+    <Compile Include="Domain\Order\TransactionDetail.cs" />
+    <Compile Include="Domain\Payment\VoidPaymentRequest.cs" />
+    <Compile Include="Domain\Payment\VoidPaymentResult.cs" />
+    <Compile Include="Domain\Promotion\OfferType.cs" />
+    <Compile Include="Domain\Order\OrderStatus.cs" />
+    <Compile Include="Domain\Payment\PaymentType.cs" />
+    <Compile Include="Domain\Shipping\Shipment.cs" />
+    <Compile Include="Domain\Shipping\ShippingItem.cs" />
+    <Compile Include="Domain\Shipping\ShippingOption.cs" />
+    <Compile Include="Domain\Shipping\ShippingProvider.cs" />
+    <Compile Include="Domain\Shipping\ShippingStatus.cs" />
+    <Compile Include="Domain\Shipping\ShippingOptionRequest.cs" />
+    <Compile Include="Domain\ShoppingCart\OrderTotalPriceInfo.cs" />
+    <Compile Include="Domain\Order\TaxDisplayType.cs" />
+    <Compile Include="Domain\ShoppingCart\ShoppingCartSetting.cs" />
+    <Compile Include="Domain\Theme\Layout.cs" />
+    <Compile Include="Domain\Theme\Page.cs" />
+    <Compile Include="Domain\Theme\Template.cs" />
+    <Compile Include="Domain\Theme\Theme.cs" />
+    <Compile Include="Domain\Theme\ThemeNode.cs" />
+    <Compile Include="Domain\Theme\ThemeSetting.cs" />
+    <Compile Include="Helper\Collections.cs" />
+    <Compile Include="Domain\Web\ShopTimeViewModel.cs" />
+    <Compile Include="Helper\ExtensionMethod\ShopTimeResultExtension.cs" />
+    <Compile Include="Helper\ExtensionMethod\StringEx.cs" />
+    <Compile Include="Helper\UrlToTags.cs" />
+    <Compile Include="PlugIn\IWarehouseProvider.cs" />
+    <Compile Include="PlugIn\IShippingProvider.cs" />
+    <Compile Include="Service\Administration\ICompanyService.cs" />
+    <Compile Include="Service\Administration\StoreServiceResult.cs" />
+    <Compile Include="Service\Catalog\CollectionService.cs" />
+    <Compile Include="Service\Catalog\ICatalogService.cs" />
+    <Compile Include="Service\Administration\IMembershipService.cs" />
+    <Compile Include="Service\Catalog\ICollectionService.cs" />
+    <Compile Include="Service\Catalog\IPriceService.cs" />
+    <Compile Include="Service\Catalog\IProductImageService.cs" />
+    <Compile Include="Service\Catalog\IProductService.cs" />
+    <Compile Include="Service\Catalog\IProductVariationService.cs" />
+    <Compile Include="Service\Catalog\ProductService.cs" />
+    <Compile Include="Service\Core\IImageService.cs" />
+    <Compile Include="Service\Core\ImageService.cs" />
+    <Compile Include="Service\Customer\ICustomerService.cs" />
+    <Compile Include="Service\FileSystem\StorageService.cs" />
+    <Compile Include="Service\FileSystem\IStorageService.cs" />
+    <Compile Include="Service\Order\IOrderService.cs" />
+    <Compile Include="Service\Shipping\ShippingExtension.cs" />
+    <Compile Include="Service\ShoppingCart\IShoppingCartService.cs" />
+    <Compile Include="PlugIn\IPaymentMethod.cs" />
+    <Compile Include="Domain\Catalog\Category.cs" />
+    <Compile Include="Domain\Core\Company.cs" />
+    <Compile Include="Domain\Promotion\Coupon.cs" />
+    <Compile Include="Domain\Order\Fulfiller.cs" />
+    <Compile Include="Domain\Promotion\Offer.cs" />
+    <Compile Include="Domain\Order\Order.cs" />
+    <Compile Include="Domain\Payment\PaymentMethod.cs" />
+    <Compile Include="Domain\Payment\PaymentRequest.cs" />
+    <Compile Include="Domain\Shipping\ContactInfo.cs" />
+    <Compile Include="Domain\Catalog\Product.cs" />
+    <Compile Include="Domain\Core\Seo.cs" />
+    <Compile Include="Domain\Core\Shopper.cs" />
+    <Compile Include="Domain\Core\Store.cs" />
+    <Compile Include="Domain\Core\ShopTimeUserProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Administration\IStoreService.cs" />
+    <Compile Include="Service\Payment\IPaymentService.cs" />
+    <Compile Include="Service\Shipping\IShippingService.cs" />
+    <Compile Include="Service\ShoppingCart\ShoppingCartExtension.cs" />
+    <Compile Include="Service\Tax\ITaxService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service\Promotion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

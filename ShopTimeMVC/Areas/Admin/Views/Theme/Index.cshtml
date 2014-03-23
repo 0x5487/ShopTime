@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Themes";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Themes       
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Product Name</span>
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Search</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-lg-4">
+                @Html.ActionLink("Create Theme", "create", null, new { @class = "btn btn-primary" })
+
+                <button type="button" class="btn btn-default">duplicate</button>
+                <button type="button" class="btn btn-default">Delete</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default"><</button>
+                    <button type="button" class="btn btn-default">></button>
+                </div>
+
+            </div>
+        </div>
+
+        <table class="table table-hover" style="margin-top: 30px">
+            <thead>
+                <tr>
+                    <td style="width: 50px">
+                        <input type="checkbox" /></td>
+
+                    <td><strong>ThemeName</strong></td>
+                    <td><strong>Last Modified By</strong></td>
+                    <td><strong>Last Modified On</strong></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (var i = 0; i < 10; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" /></td>
+
+                        <td>@Html.ActionLink("simple", "simple", "Themes")</td>
+                        <td>Jason</td>
+                        <td>2013/12/2 01:24</td>
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+
+                    <td colspan="5" class="text-right">
+
+                        <span>1 of 3 pages</span>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>

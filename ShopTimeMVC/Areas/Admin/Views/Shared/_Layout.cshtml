@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href="~/Contents/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Contents/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Contents/css/kendo.default.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="row">
+            <div class="col-md-12" style="height:30px">
+                Header
+              
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1 list-group">
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "list-group-item active" })
+                    @Html.ActionLink("Orders", "Index", "Order", null, new { @class = "list-group-item" }) 
+                    @Html.ActionLink("Customers", "Index", "Customer", null, new { @class = "list-group-item" }) 
+                    @Html.ActionLink("Discounts", "Index", "Discount", null, new { @class = "list-group-item" }) 
+                    @Html.ActionLink("Products", "Index", "Product", null, new { @class = "list-group-item" }) 
+                @Html.ActionLink("Collections", "Index", "CollectionsV1", null, new { @class = "list-group-item" })
+                @Html.ActionLink("Pages", "Index", "Page", null, new { @class = "list-group-item" })    
+                @Html.ActionLink("Themes", "Index", "Themes", null, new { @class = "list-group-item" })    
+                @Html.ActionLink("Navigation", "Index", "Navigate", null, new { @class = "list-group-item" })     
+                    @Html.ActionLink("Setting", "Index", "Account", null, new { @class = "list-group-item" })  
+                    
+            </div>
+            <div class="col-lg-11">@RenderBody()</div>
+        </div>
+
+
+
+        
+    </div>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="~/Contents/scripts/kendo.all.min.js"></script>
+    <script src="~/Contents/scripts/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('select').selectpicker();
+        });
+    </script>
+    @RenderSection("inlineScript", false)
+</body>
+</html>
