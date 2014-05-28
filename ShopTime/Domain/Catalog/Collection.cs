@@ -14,10 +14,12 @@ namespace JasonSoft.ShopTime.Domain
     {
         public int Id { get; set; }
 
+        [Index("StoreId_ResourceId")]
         public int StoreId { get; set; }
 
         public int ImageId { get; set; }
 
+        [Index("StoreId_ResourceId")]
         [Required(AllowEmptyStrings = false)]
         public string ResourceId { get; set; }
 
