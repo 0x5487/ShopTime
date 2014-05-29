@@ -14,15 +14,17 @@ namespace JasonSoft.ShopTime.Domain
     {
         public int Id { get; set; }
 
-        [Index("StoreId_ResourceId")]
+        [Index("StoreId_DisplayName", IsUnique = true)]
+        [Index("StoreId_ResourceId", IsUnique = true)]
         public int StoreId { get; set; }
 
         public int ImageId { get; set; }
 
-        [Index("StoreId_ResourceId")]
+        [Index("StoreId_ResourceId", IsUnique = true)]
         [Required(AllowEmptyStrings = false)]
         public string ResourceId { get; set; }
 
+        [Index("StoreId_DisplayName", IsUnique = true)]
         [Required(AllowEmptyStrings = false)]
         public string DisplayName { get; set; }
 
